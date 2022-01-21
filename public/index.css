@@ -6,28 +6,40 @@
 
 html,
 body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   font-family: "Lato", sans-serif;
   height: 100vh;
 }
 
 .header {
+  align-items: center;
+  display: flex;
+  flex: 0.2;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header__heading {
   background-color: black;
+  color: white;
   display: inline-block;
   padding: 1rem;
 }
 
-.header__heading {
-  color: white;
+.header__nav {
+  align-items: center;
+  display: flex;
 }
 
 .main {
   display: flex;
-  height: 80vh;
+  flex: 0.8;
   margin-top: 1.5rem;
 }
 
 .main__posts {
-  flex-basis: 50%;
   font-size: 1.1rem;
   margin-left: 0.5rem;
   overflow-y: scroll;
@@ -100,4 +112,25 @@ body {
 .main__aside__social {
   display: flex;
   justify-content: space-evenly;
+}
+
+.main__aside__categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.main__aside__categories > h4 {
+  margin-bottom: 0.2rem;
+}
+
+.main__aside__categories p {
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.main__aside__categories p:hover {
+  background-color: black;
+  color: white;
 }

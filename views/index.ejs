@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="cube.ico" type="image/x-icon" />
     <link rel="stylesheet" href="index.css" />
     <script
       src="https://kit.fontawesome.com/a9a4fd3c7d.js"
@@ -20,17 +21,7 @@
   <body>
     <header class="header">
       <h1 class="header__heading">blog</h1>
-    </header>
-    <main class="main">
-      <section class="main__posts">
-        <% posts.forEach(function(post) { %>
-        <article class="main__post">
-          <p class="main__post__date"><%= post.date %></p>
-          <%- post.post %>
-        </article>
-        <% }); %>
-      </section>
-      <aside class="main__aside">
+      <!-- <nav class="header__nav">
         <section class="main__aside__social">
           <a href="http://github.com/User5842" target="_blank" rel="noreferrer"
             ><i class="fab fa-github-square fa-2x"></i
@@ -42,7 +33,22 @@
             ><i class="fab fa-linkedin fa-2x"></i
           ></a>
         </section>
-      </aside>
+        <section class="main__aside__categories">
+          <h4>categories</h4>
+          <p>general</p>
+          <p>leetcode</p>
+        </section>
+      </nav> -->
+    </header>
+    <main class="main">
+      <section class="main__posts">
+        <% posts.forEach(function(post) { %>
+        <article class="main__post">
+          <p class="main__post__date"><%= post.date %></p>
+          <%- post.post %>
+        </article>
+        <% }); %>
+      </section>
     </main>
   </body>
 </html>
