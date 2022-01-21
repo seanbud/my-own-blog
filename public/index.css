@@ -20,21 +20,84 @@ body {
   color: white;
 }
 
-.posts {
-  font-size: 1.3rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  width: 50%;
+.main {
+  display: flex;
+  height: 80vh;
+  margin-top: 1.5rem;
 }
 
-.post * {
+.main__posts {
+  flex-basis: 50%;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+  overflow-y: scroll;
+}
+
+.main__posts::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.main__posts::-webkit-scrollbar {
+  background-color: #ffffff;
+  width: 0.5rem;
+}
+
+.main__posts::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 5px;
+}
+
+.main__post {
+  border-left: 15px solid black;
+  padding-left: 1rem;
+}
+
+.main__post:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.main__post + .main__post {
+  margin-top: 5rem;
+}
+
+.main__post__date {
+  font-size: 0.9rem;
+}
+
+.main__post * {
   width: 50ch;
 }
 
-.post * + * {
+.main__post * + * {
   margin-top: 1rem;
 }
 
-.post ul {
+.main__post pre {
+  background: #ffeff0;
+  width: 60ch;
+}
+
+.main__post code {
+  display: block;
+  padding: 0.5rem;
+}
+
+.main__post ul {
   padding-left: 2rem;
+}
+
+.main__aside {
+  flex-basis: 10%;
+  text-align: right;
+}
+
+.main__aside a {
+  color: unset;
+  text-decoration: none;
+}
+
+.main__aside__social {
+  display: flex;
+  justify-content: space-evenly;
 }

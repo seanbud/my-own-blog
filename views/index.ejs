@@ -11,16 +11,38 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/a9a4fd3c7d.js"
+      crossorigin="anonymous"
+    ></script>
     <title>blog - Rafael Negron</title>
   </head>
   <body>
     <header class="header">
       <h1 class="header__heading">blog</h1>
     </header>
-    <section class="posts">
-      <% posts.forEach(function(post) { %>
-      <article class="post"><%= post.date %> <%- post.post %></article>
-      <% }); %>
-    </section>
+    <main class="main">
+      <section class="main__posts">
+        <% posts.forEach(function(post) { %>
+        <article class="main__post">
+          <p class="main__post__date"><%= post.date %></p>
+          <%- post.post %>
+        </article>
+        <% }); %>
+      </section>
+      <aside class="main__aside">
+        <section class="main__aside__social">
+          <a href="http://github.com/User5842" target="_blank" rel="noreferrer"
+            ><i class="fab fa-github-square fa-2x"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/rafaelnegron"
+            target="_blank"
+            rel="noreferrer"
+            ><i class="fab fa-linkedin fa-2x"></i
+          ></a>
+        </section>
+      </aside>
+    </main>
   </body>
 </html>
