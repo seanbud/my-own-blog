@@ -1,4 +1,6 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
 
 import path = require("path");
 
@@ -16,13 +18,8 @@ app.use(express.static(path.resolve(__dirname, "public")));
 app.use(indexRouter);
 
 async function main() {
-  try {
-    await mongoose.connect(process.env.DB_CONNECTION as string);
-
-    app.listen(8080, () => console.log("Listening on *:8080..."));
-  } catch (err) {
-    console.error(err);
-  }
+  await mongoose.connect(process.env.DB_CONNECTION as string);
+  app.listen(8080, () => console.log("Listening on *:8080..."));
 }
 
-main();
+main().catch(console.error);
