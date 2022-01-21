@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+}
+
+.header {
+  background-color: black;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.header__heading {
+  color: white;
+}
+
+.posts {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 50%;
+}
+
+.post * {
+  width: 50ch;
+}
+
+.post * + * {
+  margin-top: 1rem;
+}
+
+.post ul {
+  padding-left: 2rem;
+}
