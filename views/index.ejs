@@ -21,29 +21,14 @@
   <body>
     <header class="header">
       <h1 class="header__heading">blog</h1>
-      <!-- <nav class="header__nav">
-        <section class="main__aside__social">
-          <a href="http://github.com/User5842" target="_blank" rel="noreferrer"
-            ><i class="fab fa-github-square fa-2x"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/rafaelnegron"
-            target="_blank"
-            rel="noreferrer"
-            ><i class="fab fa-linkedin fa-2x"></i
-          ></a>
-        </section>
-        <section class="main__aside__categories">
-          <h4>categories</h4>
-          <p>general</p>
-          <p>leetcode</p>
-        </section>
-      </nav> -->
     </header>
     <main class="main">
       <section class="main__posts">
         <% posts.forEach(function(post) { %>
         <article class="main__post">
+          <% post.categories.forEach(function(category) { %>
+          <span class="main__post__category"><%- category %></span>
+          <% }); %>
           <p class="main__post__date"><%= post.date %></p>
           <%- post.post %>
         </article>
