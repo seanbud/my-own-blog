@@ -1,11 +1,11 @@
 require("dotenv").config();
 
-const path = require("path");
+import path = require("path");
 
-const express = require("express");
-const mongoose = require("mongoose");
+import express = require("express");
+import mongoose = require("mongoose");
 
-const indexRoute = require("./routes/index");
+import { indexRouter } from "./routes/index";
 
 const app = express();
 
@@ -13,11 +13,11 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
-app.use(indexRoute);
+app.use(indexRouter);
 
 async function main() {
   try {
-    await mongoose.connect(process.env.DB_CONNECTION);
+    await mongoose.connect(process.env.DB_CONNECTION as string);
 
     app.listen(8080, () => console.log("Listening on *:8080..."));
   } catch (err) {
