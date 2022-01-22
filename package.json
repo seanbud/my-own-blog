@@ -6,9 +6,10 @@
   "scripts": {
     "build": "npm run lint && rimraf built && tsc && npm run copy",
     "copy": "copyfiles -u 1 src/public/**/* src/views/**/* built",
-    "dev": "nodemon server.js",
+    "dev": "nodemon built/server.js",
     "lint": "eslint . --ext .js,.ts",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "tsc -w"
   },
   "keywords": [],
   "author": "Rafael Negron",

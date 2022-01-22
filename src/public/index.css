@@ -114,7 +114,7 @@ a {
   background: #ffeff0;
 }
 
-.main__post code {
+.main__post pre code {
   display: block;
   padding: 0.5rem;
 }
