@@ -9,7 +9,7 @@
     "dev": "nodemon built/server.js",
     "less": "lessc src/styles/bundle.less built/public/styles/bundle.css",
     "lint": "eslint . --ext .js,.ts",
-    "start": "node built/server.js",
+    "start": "pm2 start built/server.js",
     "watch": "tsc -w"
   },
   "keywords": [],
@@ -21,7 +21,8 @@
     "express": "^4.17.2",
     "marked": "^4.0.10",
     "mongoose": "^6.1.7",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "pm2": "^5.1.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
