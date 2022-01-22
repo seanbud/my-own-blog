@@ -6,6 +6,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  min-width: 375px;
 }
 
 a {
@@ -18,5 +19,23 @@ a {
   flex-direction: column;
   margin: 0 auto;
   max-width: 1280px;
-  width: calc(100% - 140ch);
+  width: 60ch;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    width: calc(100% - 20ch);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    width: calc(100% - 15ch);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    width: calc(100% - 10ch);
+  }
 }
