@@ -7,6 +7,7 @@ import path = require("path");
 import express = require("express");
 import mongoose = require("mongoose");
 
+import { notFoundRouter } from "./routes/404Router";
 import { postsRouter } from "./routes/postsRouter";
 
 const app = express();
@@ -16,6 +17,7 @@ app.set("views", path.resolve(__dirname, "views"));
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
+app.use(notFoundRouter);
 app.use(postsRouter);
 
 async function main() {
