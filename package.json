@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "npm run lint && rimraf built && tsc && npm run copy",
-    "copy": "copyfiles -u 1 src/public/**/* src/views/**/* built",
+    "copy": "copyfiles -e src/public/scripts/*.ts -u 1 src/public/**/* src/views/**/* built",
     "dev": "nodemon built/server.js",
     "lint": "eslint . --ext .js,.ts",
     "start": "node server.js",

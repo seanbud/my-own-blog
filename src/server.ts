@@ -7,7 +7,7 @@ import path = require("path");
 import express = require("express");
 import mongoose = require("mongoose");
 
-import { indexRouter } from "./routes/index";
+import { postsRouter } from "./routes/postsRouter";
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.set("views", path.resolve(__dirname, "views"));
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
-app.use(indexRouter);
+app.use(postsRouter);
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION as string);
