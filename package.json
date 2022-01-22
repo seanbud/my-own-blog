@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "A collection of my thoughts.s",
+  "description": "A collection of my thoughts.",
   "private": true,
   "scripts": {
     "build": "npm run lint && rimraf built && tsc && npm run copy && npm run less",
@@ -16,6 +16,7 @@
   "author": "Rafael Negron",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "^14.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
@@ -25,6 +26,7 @@
     "pm2": "^5.1.2"
   },
   "devDependencies": {
+    "@types/compression": "^1.7.2",
     "@types/express": "^4.17.13",
     "@types/marked": "^4.0.1",
     "@types/node": "^16.11.7",
