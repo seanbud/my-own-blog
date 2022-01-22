@@ -6,6 +6,7 @@ import path = require("path");
 
 import compression = require("compression");
 import express = require("express");
+import helmet from "helmet";
 import mongoose = require("mongoose");
 
 import { __production__ } from "./constants";
@@ -19,6 +20,12 @@ app.enable("trust proxy");
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
+
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 if (__production__) {
   app.use((req, res, next) => {
