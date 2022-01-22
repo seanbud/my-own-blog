@@ -11,6 +11,7 @@ import { notFoundRouter } from "./routes/404Router";
 import { postsRouter } from "./routes/postsRouter";
 
 const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
@@ -22,7 +23,7 @@ app.use(postsRouter);
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION as string);
-  app.listen(8080, () => console.log("Listening on *:8080..."));
+  app.listen(PORT, () => console.log("Listening on *:8080..."));
 }
 
 main().catch(console.error);
