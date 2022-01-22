@@ -9,7 +9,7 @@
     "dev": "nodemon built/server.js",
     "less": "lessc src/styles/bundle.less built/public/styles/bundle.css",
     "lint": "eslint . --ext .js,.ts",
-    "start": "pm2 start built/server.js",
+    "start": "node built/server.js",
     "watch": "tsc -w"
   },
   "keywords": [],
