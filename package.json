@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "A collection of my thoughts.",
+  "description": "A collection of my thoughts.s",
   "private": true,
   "scripts": {
     "build": "npm run lint && rimraf built && tsc && npm run copy && npm run less",
