@@ -44,7 +44,9 @@ const getPostsByCategory = async function (req: Request, res: Response) {
  * @returns A ReadonlyArray of IPost's.
  */
 const generatePosts = async (options = {}): Promise<ReadonlyArray<IPost>> => {
-  const postsQuery: ReadonlyArray<IPost> = await Posts.find({ ...options });
+  const postsQuery: ReadonlyArray<IPost> = await Posts.find({
+    ...options,
+  }).sort({ _id: -1 });
 
   return postsQuery.map(({ categories, date, post }) => ({
     categories: categories,
