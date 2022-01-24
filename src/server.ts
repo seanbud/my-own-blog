@@ -43,7 +43,7 @@ app.use(postsRouter);
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION as string);
-  app.listen(PORT, () => console.log("Listening on *:8080..."));
+  app.listen(PORT, () => console.log(`Listening on *:${PORT}...`));
 }
 
 main().catch(console.error);
