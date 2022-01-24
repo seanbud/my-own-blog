@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "npm run lint && rimraf built && tsc && npm run copy && npm run less",
-    "copy": "copyfiles -u 1 src/public/cube.ico src/views/**/* built",
+    "copy": "copyfiles -u 1 src/public/cube.ico src/public/robots.txt src/views/**/* built",
     "dev": "nodemon built/server.js",
     "less": "lessc src/styles/bundle.less built/public/styles/bundle.css",
     "lint": "eslint . --ext .js,.ts",
