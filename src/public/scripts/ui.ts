@@ -1,7 +1,12 @@
 const headerElement = document.getElementById("header");
 const mainPostsElement = document.querySelector(".main__posts");
 
-headerElement?.addEventListener("click", () => window.location.assign("/"));
+headerElement?.addEventListener("click", ({ target }) => {
+  // This should only happen if the heading element is clicked.
+  if ((target as HTMLHeadingElement).classList.contains("header__heading")) {
+    window.location.assign("/");
+  }
+});
 
 mainPostsElement?.addEventListener("click", (event: Event) => {
   const htmlElement = event.target as HTMLElement;

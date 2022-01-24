@@ -1,14 +1,33 @@
+#header,
+.header__social {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#header {
+  justify-content: center;
+  width: 100%;
+}
+
 .header__heading {
   background-color: black;
   color: white;
+  margin-right: 2rem;
   padding: 1rem;
   text-align: center;
-  transition: width 0.2s ease-in-out;
   width: 100px;
 }
 
 .header__heading:hover {
   cursor: pointer;
-  text-align: center;
-  width: 200px;
+}
+
+.header__social a {
+  color: unset;
+}
+
+.header__social a + a {
+  margin-left: 2rem;
+  text-decoration: none;
 }
