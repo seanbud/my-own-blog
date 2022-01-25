@@ -1,13 +1,5 @@
-#header,
-.header__social {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 #header {
-  justify-content: space-evenly;
-  width: 100%;
+  display: flex;
 }
 
 .header__heading {
@@ -21,6 +13,11 @@
 
 .header__heading:hover {
   cursor: pointer;
+}
+
+.header__social {
+  align-self: center;
+  text-align: center;
 }
 
 .header__social {
@@ -39,7 +36,6 @@
 .header__search {
   align-items: center;
   display: flex;
-  flex: 2;
 }
 
 .header__search__input,
@@ -63,7 +59,18 @@
   margin-left: 0.5rem;
 }
 
-@media screen and (max-width: 460px) {
+.header__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#category-select {
+  font-family: "Lato", sans-serif;
+  padding: 0.1rem;
+}
+
+@media screen and (max-width: 555px) {
   #header {
     display: flex;
     flex-direction: column;
@@ -76,5 +83,9 @@
   .header__social,
   .header__search {
     display: unset;
+  }
+
+  .header__controls {
+    align-items: center;
   }
 }

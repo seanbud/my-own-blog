@@ -47,17 +47,25 @@
             <i class="fab fa-linkedin-in"></i>
           </a>
         </div>
-        <form class="header__search">
-          <i class="fas fa-search"></i>
-          <input
-            class="header__search__input"
-            name="search"
-            placeholder="Find posts by query"
-            type="text"
-            required
-          />
-          <button class="header__search__submit">Find</button>
-        </form>
+        <div class="header__controls">
+          <form class="header__search">
+            <i class="fas fa-search"></i>
+            <input
+              class="header__search__input"
+              name="search"
+              placeholder="Find posts by query"
+              type="text"
+              required
+            />
+            <button class="header__search__submit">Find</button>
+          </form>
+          <select name="categories" id="category-select">
+            <option value="">--Find a category--</option>
+            <% categories.forEach(category => { %>
+            <option value="<%= category %>"><%- category %></option>
+            <% }); %>
+          </select>
+        </div>
       </header>
       <section class="main__posts">
         <% if (posts.length === 0) { %>

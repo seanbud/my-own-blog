@@ -11,6 +11,7 @@ import { Posts } from "../models/Post";
  */
 const getPosts = async function (_: Request, res: Response) {
   res.render("index", {
+    categories: await generateCategories(),
     posts: await generatePosts(),
   });
 };
@@ -22,6 +23,7 @@ const getPosts = async function (_: Request, res: Response) {
  */
 const getPostsByCategory = async function (req: Request, res: Response) {
   res.render("index", {
+    categories: await generateCategories(),
     posts: await generatePosts({ categories: req.params.category }),
   });
 };
@@ -33,6 +35,7 @@ const getPostsByCategory = async function (req: Request, res: Response) {
  */
 const getPostsBySearch = async function (req: Request, res: Response) {
   res.render("index", {
+    categories: await generateCategories(),
     // TODO: No way this can be efficient at scale.
     // Most likely will need to separate titles out from content.
     // In other words, `content` and `post` should be their own fields in a document.
@@ -40,6 +43,14 @@ const getPostsBySearch = async function (req: Request, res: Response) {
       post: { $regex: req.params.search, $options: "i" },
     }),
   });
+};
+
+/**
+ * Generates list of unique categories.
+ * @returns A ReadonlyArray of categories.
+ */
+const generateCategories = async (): Promise<ReadonlyArray<string>> => {
+  return Posts.find().distinct("categories");
 };
 
 /**

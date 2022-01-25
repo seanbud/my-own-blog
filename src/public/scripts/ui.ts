@@ -1,6 +1,13 @@
+const categorySelectElement = document.getElementById("category-select");
 const headerElement = document.getElementById("header");
 const mainPostsElement = document.querySelector(".main__posts");
 const searchForm = document.querySelector(".header__search");
+
+categorySelectElement?.addEventListener("input", (event) => {
+  const categorySelect = event.target as HTMLSelectElement;
+  const categorySelectValue = categorySelect.value;
+  handleCategoryClick(categorySelectValue);
+});
 
 headerElement?.addEventListener("click", ({ target }) => {
   // This should only happen if the heading element is clicked.
@@ -17,7 +24,7 @@ mainPostsElement?.addEventListener("click", (event: Event) => {
      * Categories are <span> elements.
      */
     case "SPAN":
-      handleSpanClick(htmlElement);
+      handleCategoryClick(htmlElement.textContent as string);
       return;
     case "CODE":
       handleCodeClick(htmlElement);
@@ -65,6 +72,14 @@ function copyNotice(codeElement: HTMLElement) {
 }
 
 /**
+ * Handles category selection.
+ */
+function handleCategoryClick(categoryName: string) {
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+  window.location.assign(`/category/${categoryName}`);
+}
+
+/**
  * Handles a click event on `<code>` and `<pre>` elements.
  */
 function handleCodeClick(codeElement: HTMLElement) {
@@ -82,12 +97,4 @@ function handleCodeClick(codeElement: HTMLElement) {
     .catch(console.error);
 
   copyNotice(codeElement);
-}
-
-/**
- * Handles a click event on `<span>` elements.
- */
-function handleSpanClick({ textContent }: HTMLElement) {
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-  window.location.assign(`/category/${textContent}`);
 }
