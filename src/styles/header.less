@@ -62,3 +62,19 @@
 .header__search * + * {
   margin-left: 0.5rem;
 }
+
+@media screen and (max-width: 460px) {
+  #header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #header * + * {
+    margin-top: 0.5rem;
+  }
+
+  .header__social,
+  .header__search {
+    display: unset;
+  }
+}
