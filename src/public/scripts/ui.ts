@@ -1,5 +1,6 @@
 const headerElement = document.getElementById("header");
 const mainPostsElement = document.querySelector(".main__posts");
+const searchForm = document.querySelector(".header__search");
 
 headerElement?.addEventListener("click", ({ target }) => {
   // This should only happen if the heading element is clicked.
@@ -22,6 +23,13 @@ mainPostsElement?.addEventListener("click", (event: Event) => {
       handleCodeClick(htmlElement);
       return;
   }
+});
+
+searchForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const form = event.target as HTMLFormElement;
+  const searchInput = form.elements.namedItem("search") as HTMLInputElement;
+  window.location.assign(`/search/${searchInput.value}`);
 });
 
 /**
@@ -81,5 +89,5 @@ function handleCodeClick(codeElement: HTMLElement) {
  */
 function handleSpanClick({ textContent }: HTMLElement) {
   // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-  window.location.assign(`/${textContent}`);
+  window.location.assign(`/category/${textContent}`);
 }

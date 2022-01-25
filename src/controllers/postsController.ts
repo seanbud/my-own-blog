@@ -21,20 +21,24 @@ const getPosts = async function (_: Request, res: Response) {
  * @param {Express.Response} res
  */
 const getPostsByCategory = async function (req: Request, res: Response) {
-  const posts = await generatePosts({ categories: req.params.category });
-
-  /**
-   * No posts means a category was most likely entered as a URL search
-   * param and was not found. Redirect to the 404 page and show them that
-   * sweet, sweet GIF.
-   */
-  if (!posts.length) {
-    res.redirect("404");
-    return;
-  }
-
   res.render("index", {
     posts: await generatePosts({ categories: req.params.category }),
+  });
+};
+
+/**
+ * Retrieves all Posts from the Posts database filtered by search term(s).
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ */
+const getPostsBySearch = async function (req: Request, res: Response) {
+  res.render("index", {
+    // TODO: No way this can be efficient at scale.
+    // Most likely will need to separate titles out from content.
+    // In other words, `content` and `post` should be their own fields in a document.
+    posts: await generatePosts({
+      post: { $regex: req.params.search, $options: "i" },
+    }),
   });
 };
 
@@ -55,4 +59,4 @@ const generatePosts = async (options = {}): Promise<ReadonlyArray<IPost>> => {
   }));
 };
 
-export { getPosts, getPostsByCategory };
+export { getPosts, getPostsByCategory, getPostsBySearch };

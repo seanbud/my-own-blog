@@ -38,8 +38,8 @@ app.use(compression());
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
-app.use(notFoundRouter);
 app.use(postsRouter);
+app.use(notFoundRouter);
 
 async function main() {
   await mongoose.connect(process.env.DB_CONNECTION as string);
