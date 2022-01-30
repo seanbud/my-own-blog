@@ -44,7 +44,9 @@
 }
 
 .header__search__input {
-  padding: 0.1rem;
+  border: 1px solid black;
+  margin: 0 0 0 0.5rem;
+  padding: 0.15rem;
 }
 
 .header__search__submit {
@@ -52,6 +54,7 @@
   border: none;
   color: white;
   cursor: pointer;
+  margin-top: 0;
   padding: 0.2rem;
 }
 
@@ -66,6 +69,7 @@
 }
 
 #category-select {
+  border: 1px solid black;
   font-family: "Lato", sans-serif;
   padding: 0.1rem;
 }
@@ -82,10 +86,16 @@
 
   .header__social,
   .header__search {
-    display: unset;
+    align-items: baseline;
+    display: flex;
   }
 
   .header__controls {
     align-items: center;
+  }
+
+  .header__search__input,
+  .header__search__submit {
+    margin-top: 0;
   }
 }
