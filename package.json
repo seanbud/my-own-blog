@@ -22,7 +22,7 @@
     "express": "4.17.2",
     "helmet": "5.0.2",
     "marked": "4.0.10",
-    "mongoose": "6.1.7",
+    "mongoose": "6.1.8",
     "node-fetch": "2.6.7",
     "pm2": "5.1.2"
   },
