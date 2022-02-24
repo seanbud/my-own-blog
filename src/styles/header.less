@@ -1,13 +1,15 @@
 #header {
   display: flex;
+  justify-content: space-between;
+}
+
+.header__wrapper {
+  background-color: black;
+  padding: 1rem;
 }
 
 .header__heading {
-  background-color: black;
   color: white;
-  flex: 1;
-  padding: 1rem;
-  text-align: center;
   width: 100px;
 }
 
@@ -20,7 +22,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  text-align: center;
 }
 
 .header__social a {
@@ -74,7 +75,12 @@
 }
 
 .font__awesome {
+  color: white;
   text-rendering: optimizeLegibility;
+}
+
+.font__awesome-search {
+  align-self: center;
 }
 
 @media screen and (max-width: 600px) {
@@ -83,8 +89,9 @@
     flex-direction: column;
   }
 
-  #header * + * {
-    margin-top: 0.5rem;
+  .header__wrapper,
+  .header__heading {
+    width: unset;
   }
 
   .header__social,
@@ -95,6 +102,8 @@
 
   .header__controls {
     align-items: center;
+    flex-direction: row;
+    margin-top: 0.5rem;
   }
 
   .header__search__input,
