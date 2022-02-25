@@ -13,7 +13,8 @@ const getGif = async () => {
   const gifSearchRequest = await fetch(BASE_URL.toString());
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const parsedGifSearchRequest: ISlimGifSearch = await gifSearchRequest.json();
+  const parsedGifSearchRequest: ISlimGifSearch =
+    (await gifSearchRequest.json()) as ISlimGifSearch;
 
   // The magic 26 indicates the upper bound of the Giphy API limit.
   const random = Math.floor(Math.random() * 26);
