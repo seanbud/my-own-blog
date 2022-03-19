@@ -8,6 +8,7 @@
   border: 5px solid #39dc65;
   border-right: none;
   height: 100%;
+  min-width: 0;
   overflow: auto;
 }
 

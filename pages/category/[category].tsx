@@ -1,6 +1,7 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
+import { useContext } from "react";
 
 import Layout from "../../components/Layout/Layout";
 import { IPost } from "../../interfaces/IPost";
@@ -14,8 +15,10 @@ interface Props {
 }
 
 const Category: NextPage<Props> = ({ categories, posts }) => {
+  const context = useContext(Context);
+
   return (
-    <Context.Provider value={{ categories, posts }}>
+    <Context.Provider value={{ audio: context.audio, categories, posts }}>
       <Layout />
     </Context.Provider>
   );

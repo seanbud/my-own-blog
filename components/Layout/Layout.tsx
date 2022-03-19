@@ -14,11 +14,11 @@ const Layout: FunctionComponent = () => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>blog - Rafael Negron</title>
       </Head>
       <main className={styles.main}>
-        <fieldset className={styles.fieldset}>
+        <fieldset className={styles.fieldset} style={{ width: "100%" }}>
           <Link href="/" passHref>
             <legend
               className={styles.legend}
