@@ -1,0 +1,16 @@
+@import url(../vendor/fonts.module.css);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  color: #39dc65;
+  cursor: url(/cursor/cursor.png), auto;
+  font-family: "Monofonto";
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}

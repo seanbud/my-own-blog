@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.header a,
+.header i {
+  cursor: url(/cursor/cursor.png), auto;
+}
+
+.header a {
+  color: #39dc65;
+  font-size: 2rem;
+  text-decoration: none;
+}
