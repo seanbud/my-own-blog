@@ -1,0 +1,7 @@
+.posts {
+  margin: 2rem auto;
+}
+
+.posts article + article {
+  margin-top: 3rem;
+}
