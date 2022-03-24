@@ -6,6 +6,4 @@ And I _know_ it will be a thing because this is version 2.
 
 ## Tech Stack
 
-Remember https://nextjs.org/docs/going-to-production#in-general
-Sanitize HTML?
-Move main back to the index and abstract out header
+Using [NextJS](https://nextjs.org/) because the file-based routing, ability to add middleware(s) quickly, and retrieval of data are simple.

@@ -14,6 +14,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "dev:debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "format": "prettier --write .",
     "prebuild": "npm run lint && npm run format",
@@ -21,6 +22,7 @@
     "lint": "next lint -- --fix"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.5.0",
     "marked": "^4.0.12",
     "mongoose": "^6.2.7",
