@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Script from "next/script";
 import { FunctionComponent, useContext } from "react";
 
 import styles from "./Layout.module.css";
@@ -17,6 +18,7 @@ const Layout: FunctionComponent = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>blog - Rafael Negron</title>
       </Head>
+      <Script src="dist/purify.min.js" strategy="lazyOnload" />
       <main className={styles.main}>
         <fieldset className={styles.fieldset} style={{ width: "100%" }}>
           <Link href="/" passHref>

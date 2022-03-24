@@ -1,11 +1,23 @@
+import createDOMPurify from "dompurify";
 import Link from "next/link";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 import styles from "./Post.module.css";
 
 import { IPost } from "../../interfaces/IPost";
 
 const Post: FunctionComponent<IPost> = ({ categories, date, post }) => {
+  const [cleanPost, setCleanPost] = useState("");
+
+  useEffect(() => {
+    const DOMPurify = createDOMPurify(window);
+    setCleanPost(
+      DOMPurify.sanitize(post, {
+        USE_PROFILES: { html: true },
+      })
+    );
+  }, []);
+
   return (
     <article className={styles.post}>
       {categories.map((category, index) => (
@@ -14,7 +26,7 @@ const Post: FunctionComponent<IPost> = ({ categories, date, post }) => {
         </span>
       ))}
       <p>{date}</p>
-      <div dangerouslySetInnerHTML={{ __html: post }}></div>
+      <div dangerouslySetInnerHTML={{ __html: cleanPost }}></div>
     </article>
   );
 };

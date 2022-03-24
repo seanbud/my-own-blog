@@ -13,11 +13,26 @@
   text-decoration: underline;
 }
 
+.post pre {
+  background-color: #203420;
+  border-radius: 2px;
+  box-shadow: 5px 5px 11px black;
+  padding: 1rem;
+}
+
 .post pre code {
   display: block;
   overflow: auto;
   padding: 0.5rem;
   width: 100%;
+}
+
+.post pre code::-webkit-scrollbar {
+  width: 5px;
+}
+
+.post pre code::-webkit-scrollbar-thumb {
+  background: #39dc65;
 }
 
 .post__category,

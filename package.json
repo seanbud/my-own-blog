@@ -22,7 +22,9 @@
     "lint": "next lint -- --fix"
   },
   "dependencies": {
+    "@types/dompurify": "^2.3.3",
     "cross-env": "^7.0.3",
+    "dompurify": "^2.3.6",
     "eslint-config-prettier": "^8.5.0",
     "marked": "^4.0.12",
     "mongoose": "^6.2.7",
