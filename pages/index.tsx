@@ -1,7 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
-import { useEffect, useState } from "react";
 
 import Layout from "../components/Layout/Layout";
 import { IPost } from "../interfaces/IPost";
@@ -15,12 +14,8 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ categories, posts }) => {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-
-  useEffect(() => setAudio(new Audio("/audio/ok.wav")), []);
-
   return (
-    <Context.Provider value={{ audio, categories, posts }}>
+    <Context.Provider value={{ categories, posts }}>
       <Layout />
     </Context.Provider>
   );

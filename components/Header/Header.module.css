@@ -1,16 +1,18 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
 }
 
-.header a,
-.header i {
-  cursor: url(/cursor/cursor.png), auto;
+.header__main {
+  background-color: #0d0d0d;
+  color: white;
+  padding: 1rem;
 }
 
-.header a {
-  color: #39dc65;
-  font-size: 2rem;
-  text-decoration: none;
+.header__title {
+  margin: 0;
+}
+
+.header__socials a + a {
+  margin-left: 1rem;
 }
