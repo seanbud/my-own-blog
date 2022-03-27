@@ -20,11 +20,13 @@ const Post: FunctionComponent<IPost> = ({ categories, date, post }) => {
 
   return (
     <article className={styles.post}>
-      {categories.map((category, index) => (
-        <span className={styles.post__category} key={index}>
-          <Link href={`/category/${category}`}>{category}</Link>
-        </span>
-      ))}
+      <div className={styles.post__categories}>
+        {categories.map((category, index) => (
+          <span className={styles.post__category} key={index}>
+            <Link href={`/category/${category}`}>{category}</Link>
+          </span>
+        ))}
+      </div>
       <p>{date}</p>
       <div dangerouslySetInnerHTML={{ __html: cleanPost }}></div>
     </article>

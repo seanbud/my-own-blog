@@ -2,5 +2,6 @@
   height: 100%;
   margin: 0 auto;
   max-width: 720px;
+  min-width: 375px;
   padding: 0 1rem 1rem 1rem;
 }
