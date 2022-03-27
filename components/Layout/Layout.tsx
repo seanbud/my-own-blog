@@ -1,17 +1,13 @@
 import Head from "next/head";
-import Link from "next/link";
 import Script from "next/script";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 
 import styles from "./Layout.module.css";
 
-import Context from "../../store/store";
 import Header from "../Header/Header";
 import Posts from "../Posts/Posts";
 
 const Layout: FunctionComponent = () => {
-  const context = useContext(Context);
-
   return (
     <>
       <Head>
@@ -20,20 +16,8 @@ const Layout: FunctionComponent = () => {
       </Head>
       <Script src="dist/purify.min.js" strategy="lazyOnload" />
       <main className={styles.main}>
-        <fieldset className={styles.fieldset} style={{ width: "100%" }}>
-          <Link href="/" passHref>
-            <legend
-              className={styles.legend}
-              onClick={() => context.audio?.play()}
-            >
-              blog
-            </legend>
-          </Link>
-          <section className={styles.content}>
-            <Header />
-            <Posts />
-          </section>
-        </fieldset>
+        <Header />
+        <Posts />
       </main>
     </>
   );
