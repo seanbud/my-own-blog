@@ -16,7 +16,7 @@ const Post: FunctionComponent<IPost> = ({ categories, date, post }) => {
         USE_PROFILES: { html: true },
       })
     );
-  }, []);
+  }, [post]);
 
   return (
     <article className={styles.post}>
