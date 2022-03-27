@@ -11,16 +11,6 @@ export default function Document() {
         <meta property="og:type" content="blog.rafaeln" />
         <meta property="og:url" content="https://rafaeln.me" />
         <meta property="og:image" content="/svgs/terminal.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
