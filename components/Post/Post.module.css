@@ -5,7 +5,7 @@
 .post__categories {
   align-items: center;
   display: flex;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .post__category,

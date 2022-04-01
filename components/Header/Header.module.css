@@ -10,6 +10,7 @@
 }
 
 .header__title {
+  cursor: pointer;
   margin: 0;
 }
 

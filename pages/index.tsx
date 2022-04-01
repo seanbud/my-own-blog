@@ -26,9 +26,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const categories: string[] = await Post.find().distinct("categories");
 
-  const posts: ReadonlyArray<IPost> = await Post.find({}).sort({
-    _id: -1,
-  });
+  const page = 1;
+  const limit = 5;
+
+  const posts: ReadonlyArray<IPost> = await Post.find({})
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .sort({
+      _id: -1,
+    });
 
   return {
     props: {
