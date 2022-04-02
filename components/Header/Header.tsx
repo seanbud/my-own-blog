@@ -38,8 +38,8 @@ const Header: FunctionComponent = () => {
         </div>
       </div>
       <div className={styles.header__controls}>
-        <CategorySelect />
         <Search />
+        <CategorySelect />
       </div>
     </header>
   );

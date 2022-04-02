@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import { FormEvent, FunctionComponent, useRef } from "react";
 
+import styles from "./Search.module.css";
+
 const Search: FunctionComponent = () => {
   const router = useRouter();
 
@@ -16,9 +18,17 @@ const Search: FunctionComponent = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} ref={searchForm}>
-      <input name="search" type="text" required />
-      <button type="submit">Search</button>
+    <form className={styles.search} onSubmit={onSubmit} ref={searchForm}>
+      <input
+        aria-label="Search"
+        className={styles.search__input}
+        name="search"
+        type="text"
+        required
+      />
+      <button className={styles.search__button} type="submit">
+        Search
+      </button>
     </form>
   );
 };

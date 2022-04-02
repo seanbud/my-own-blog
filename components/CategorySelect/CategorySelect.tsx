@@ -17,7 +17,11 @@ const CategorySelect: FunctionComponent = () => {
   };
 
   return (
-    <select className={styles.select} onInput={onCategorySelect}>
+    <select
+      aria-label="Category"
+      className={styles.select}
+      onInput={onCategorySelect}
+    >
       <option value="">Select a category</option>
       {context.categories.map((category, index) => (
         <option key={index} value={category}>
