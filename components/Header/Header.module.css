@@ -18,3 +18,18 @@
 .header__socials a + a {
   margin-left: 1rem;
 }
+
+@media screen and (max-width: 460px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header__main {
+    align-self: flex-start;
+  }
+
+  .header__controls {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
