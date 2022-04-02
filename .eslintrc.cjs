@@ -17,7 +17,9 @@ module.exports = {
     "prettier",
   ],
   rules: {
+    "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
     "import/no-unresolved": "error",
     "import/order": [
       1,
