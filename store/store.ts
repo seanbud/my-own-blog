@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { IPost } from "../interfaces/IPost";
 
-const Context = createContext<{
+const BlogContext = createContext<{
   categories: string[];
   posts: IPost[];
 }>({
@@ -9,4 +9,4 @@ const Context = createContext<{
   posts: [],
 });
 
-export default Context;
+export default BlogContext;

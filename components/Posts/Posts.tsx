@@ -2,11 +2,11 @@ import { FunctionComponent, useContext } from "react";
 
 import styles from "./Posts.module.css";
 
-import Context from "../../store/store";
+import BlogContext from "../../store/store";
 import Post from "../Post/Post";
 
 const Posts: FunctionComponent = () => {
-  const context = useContext(Context);
+  const context = useContext(BlogContext);
 
   return (
     <div className={styles.posts}>
