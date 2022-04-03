@@ -7,13 +7,13 @@ import { IPageProps } from "../../interfaces/IPageProps";
 import { IPost } from "../../interfaces/IPost";
 import dbConnect from "../../lib/db-connect";
 import Post from "../../schemas/Post";
-import BlogContext from "../../store/store";
+import { BlogContextProvider } from "../../store/store";
 
-const Search: NextPage<IPageProps> = ({ categories, posts }) => {
+const Search: NextPage<IPageProps> = (props) => {
   return (
-    <BlogContext.Provider value={{ categories, posts }}>
-      <Layout />
-    </BlogContext.Provider>
+    <BlogContextProvider>
+      <Layout {...props} />
+    </BlogContextProvider>
   );
 };
 
@@ -24,11 +24,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const categories: string[] = await Post.find().distinct("categories");
 
+  const page = 1;
+  const limit = 5;
+
   const posts: ReadonlyArray<IPost> = await Post.find({
     post: { $regex: query, $options: "i" },
-  }).sort({
-    _id: -1,
-  });
+  })
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .sort({
+      _id: -1,
+    });
 
   return {
     props: {

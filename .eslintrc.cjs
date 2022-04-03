@@ -59,6 +59,7 @@ module.exports = {
         },
       },
     ],
+    "react-hooks/exhaustive-deps": "off",
   },
   settings: {
     "import/parsers": {

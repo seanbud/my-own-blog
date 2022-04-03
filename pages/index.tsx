@@ -7,13 +7,13 @@ import { IPageProps } from "../interfaces/IPageProps";
 import { IPost } from "../interfaces/IPost";
 import dbConnect from "../lib/db-connect";
 import Post from "../schemas/Post";
-import BlogContext from "../store/store";
+import { BlogContextProvider } from "../store/store";
 
-const Home: NextPage<IPageProps> = ({ categories, posts }) => {
+const Home: NextPage<IPageProps> = (props) => {
   return (
-    <BlogContext.Provider value={{ categories, posts }}>
-      <Layout />
-    </BlogContext.Provider>
+    <BlogContextProvider>
+      <Layout {...props} />
+    </BlogContextProvider>
   );
 };
 
