@@ -3,21 +3,17 @@ import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
 
 import Layout from "../components/Layout/Layout";
+import { IPageProps } from "../interfaces/IPageProps";
 import { IPost } from "../interfaces/IPost";
 import dbConnect from "../lib/db-connect";
 import Post from "../schemas/Post";
-import Context from "../store/store";
+import { BlogContextProvider } from "../store/store";
 
-interface Props {
-  categories: string[];
-  posts: IPost[];
-}
-
-const Home: NextPage<Props> = ({ categories, posts }) => {
+const Home: NextPage<IPageProps> = (props) => {
   return (
-    <Context.Provider value={{ categories, posts }}>
-      <Layout />
-    </Context.Provider>
+    <BlogContextProvider>
+      <Layout {...props} />
+    </BlogContextProvider>
   );
 };
 

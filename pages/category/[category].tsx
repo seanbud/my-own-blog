@@ -3,21 +3,17 @@ import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
 
 import Layout from "../../components/Layout/Layout";
+import { IPageProps } from "../../interfaces/IPageProps";
 import { IPost } from "../../interfaces/IPost";
 import dbConnect from "../../lib/db-connect";
 import Post from "../../schemas/Post";
-import Context from "../../store/store";
+import { BlogContextProvider } from "../../store/store";
 
-interface Props {
-  categories: string[];
-  posts: IPost[];
-}
-
-const Category: NextPage<Props> = ({ categories, posts }) => {
+const Category: NextPage<IPageProps> = (props) => {
   return (
-    <Context.Provider value={{ categories, posts }}>
-      <Layout />
-    </Context.Provider>
+    <BlogContextProvider>
+      <Layout {...props} />
+    </BlogContextProvider>
   );
 };
 
@@ -28,11 +24,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const categories: string[] = await Post.find().distinct("categories");
 
-  const posts: ReadonlyArray<IPost> = await Post.find({
-    categories: category,
-  }).sort({
-    _id: -1,
-  });
+  const page = 1;
+  const limit = 5;
+
+  const posts: ReadonlyArray<IPost> = await Post.find({ categories: category })
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .sort({
+      _id: -1,
+    });
 
   return {
     props: {

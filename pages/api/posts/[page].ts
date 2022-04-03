@@ -1,24 +1,30 @@
 import { marked } from "marked";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { IPost } from "../../interfaces/IPost";
-import dbConnect from "../../lib/db-connect";
-import Post from "../../schemas/Post";
+import { IPost } from "../../../interfaces/IPost";
+import dbConnect from "../../../lib/db-connect";
+import Post from "../../../schemas/Post";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const { method } = req;
+  const { page } = req.query || 1;
 
   await dbConnect();
 
   switch (method) {
     case "GET":
       try {
-        const posts: ReadonlyArray<IPost> = await Post.find({}).sort({
-          _id: -1,
-        });
+        const limit = 5;
+
+        const posts: ReadonlyArray<IPost> = await Post.find({})
+          .limit(limit * 1)
+          .skip((Number(page) - 1) * limit)
+          .sort({
+            _id: -1,
+          });
 
         const markedPosts = posts.map(({ categories, date, post }) => ({
           categories: categories,

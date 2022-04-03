@@ -3,10 +3,10 @@ import { FormEvent, FunctionComponent, useContext } from "react";
 
 import styles from "./CategorySelect.module.css";
 
-import Context from "../../store/store";
+import BlogContext from "../../store/store";
 
 const CategorySelect: FunctionComponent = () => {
-  const context = useContext(Context);
+  const context = useContext(BlogContext);
 
   const router = useRouter();
 
