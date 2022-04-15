@@ -60,6 +60,8 @@ const Layout: FunctionComponent<IPageProps> = ({ categories, posts }) => {
       <main className={styles.main}>
         <Header />
         <Posts />
+        {/* <Header />
+        <Posts /> */}
       </main>
     </>
   );

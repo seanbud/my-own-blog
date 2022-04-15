@@ -1,8 +1,7 @@
 .posts {
-  margin: 2rem auto;
-  padding-bottom: 2rem;
+  padding: 1rem 0;
 }
 
 .posts article + article {
-  margin-top: 3rem;
+  margin-top: 5rem;
 }

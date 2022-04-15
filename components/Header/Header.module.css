@@ -1,35 +1,31 @@
 .header {
   align-items: center;
+  border-bottom: 3px solid #ebebeb;
   display: flex;
   justify-content: space-between;
-}
-
-.header__main {
-  background-color: #0d0d0d;
-  color: white;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .header__title {
-  cursor: pointer;
   margin: 0;
 }
 
-.header__socials a + a {
-  margin-left: 1rem;
+.header__navigation {
+  border: 3px solid #ebebeb;
+  display: flex;
 }
 
-@media screen and (max-width: 460px) {
-  .header {
-    flex-direction: column;
-  }
+.header__navigation a {
+  color: unset;
+  padding: 0.5rem;
+  text-decoration: none;
+}
 
-  .header__main {
-    align-self: flex-start;
-  }
+.header__navigation a + a {
+  border-left: 3px solid #ebebeb;
+}
 
-  .header__controls {
-    margin-top: 1rem;
-    width: 100%;
-  }
+.header__navigation a:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
 }
