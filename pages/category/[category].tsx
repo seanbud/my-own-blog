@@ -1,4 +1,3 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
 
@@ -24,15 +23,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const categories: string[] = await Post.find().distinct("categories");
 
-  const page = 1;
-  const limit = 5;
-
-  const posts: ReadonlyArray<IPost> = await Post.find({ categories: category })
-    .limit(limit * 1)
-    .skip((page - 1) * limit)
-    .sort({
-      _id: -1,
-    });
+  const posts: ReadonlyArray<IPost> = await Post.find({
+    categories: category,
+  }).sort({
+    _id: -1,
+  });
 
   return {
     props: {

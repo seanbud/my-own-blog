@@ -11,31 +11,6 @@
   font-size: 1.5rem;
 }
 
-.post pre {
-  background-color: black;
-  color: white;
-  padding: 0.5rem;
-  width: fit-content;
-}
-
-.post pre code {
-  display: block;
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.9rem;
-  font-weight: 400;
-  overflow: auto;
-  padding: 0.5rem;
-  width: 100%;
-}
-
-.post pre code::-webkit-scrollbar {
-  width: 5px;
-}
-
-.post pre code::-webkit-scrollbar-thumb {
-  background: white;
-}
-
 .post blockquote {
   background: #f9f9f9;
   border-left: 10px solid #ccc;

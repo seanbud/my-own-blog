@@ -10,6 +10,10 @@ export default function Document() {
         <meta property="og:type" content="blog.rafaeln" />
         <meta property="og:url" content="https://rafaeln.me" />
         <meta property="og:image" content="/svgs/terminal.svg" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css"
+        ></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { FunctionComponent, useContext, useEffect, useRef } from "react";
 
 import styles from "./Layout.module.css";
@@ -57,6 +58,7 @@ const Layout: FunctionComponent<IPageProps> = ({ categories, posts }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>blog - Rafael Negron</title>
       </Head>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js" />
       <main className={styles.main}>
         <Header />
         <Posts />
