@@ -29,3 +29,11 @@
   background-color: #ebebeb;
   cursor: pointer;
 }
+
+@media screen and (max-width: 450px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
