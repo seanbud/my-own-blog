@@ -13,7 +13,6 @@
 
 .post pre {
   background-color: rgb(242, 242, 242);
-  padding: 1rem;
 }
 
 .post pre code {
@@ -22,7 +21,8 @@
     "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
     "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
     monospace;
-  overflow: scroll;
+  overflow: scroll
+  padding: 1rem;
 }
 
 .post blockquote {
