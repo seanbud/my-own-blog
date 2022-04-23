@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import { FunctionComponent } from "react";
 
 import styles from "./Layout.module.css";
