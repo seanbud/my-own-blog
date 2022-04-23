@@ -11,6 +11,20 @@
   font-size: 1.5rem;
 }
 
+.post pre {
+  background-color: rgb(242, 242, 242);
+  padding: 1rem;
+}
+
+.post pre code {
+  display: block;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+  overflow: scroll;
+}
+
 .post blockquote {
   background: #f9f9f9;
   border-left: 10px solid #ccc;

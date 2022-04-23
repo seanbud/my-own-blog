@@ -1,4 +1,3 @@
-import { marked } from "marked";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { IPost } from "../../../interfaces/IPost";
@@ -26,13 +25,13 @@ export default async function handler(
             _id: -1,
           });
 
-        const markedPosts = posts.map(({ categories, date, post }) => ({
+        const normalizedPosts = posts.map(({ categories, date, post }) => ({
           categories: categories,
           date: date,
-          post: marked.parse(post),
+          post,
         }));
 
-        res.status(200).json({ success: true, data: markedPosts });
+        res.status(200).json({ success: true, data: normalizedPosts });
       } catch (error) {
         res.status(400).json({ success: false });
       }

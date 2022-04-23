@@ -1,4 +1,3 @@
-import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
 
 import Layout from "../../components/Layout/Layout";
@@ -35,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       posts: posts.map(({ categories, date, post }) => ({
         categories: categories,
         date: date,
-        post: marked.parse(post),
+        post: post,
       })),
     },
   };
