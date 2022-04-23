@@ -5,5 +5,5 @@
   margin: 0 auto;
   max-width: 900px;
   min-width: 375px;
-  width: calc(100% - 100px);
+  padding: 0 1rem;
 }
