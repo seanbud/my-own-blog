@@ -60,6 +60,7 @@ module.exports = {
       },
     ],
     "react-hooks/exhaustive-deps": "off",
+    "react/no-children-prop": "off",
   },
   settings: {
     "import/parsers": {

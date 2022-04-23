@@ -1,7 +1,9 @@
 .main {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   margin: 0 auto;
-  max-width: 720px;
+  max-width: 900px;
   min-width: 375px;
-  padding: 0 1rem 1rem 1rem;
+  width: calc(100% - 100px);
 }

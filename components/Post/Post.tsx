@@ -1,34 +1,15 @@
-import createDOMPurify from "dompurify";
-import Link from "next/link";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
+import ReactMarkdown from "react-markdown";
 
 import styles from "./Post.module.css";
 
 import { IPost } from "../../interfaces/IPost";
 
-const Post: FunctionComponent<IPost> = ({ categories, date, post }) => {
-  const [cleanPost, setCleanPost] = useState("");
-
-  useEffect(() => {
-    const DOMPurify = createDOMPurify(window);
-    setCleanPost(
-      DOMPurify.sanitize(post, {
-        USE_PROFILES: { html: true },
-      })
-    );
-  }, [post]);
-
+const Post: FunctionComponent<IPost> = ({ date, post }) => {
   return (
     <article className={styles.post}>
-      <div className={styles.post__categories}>
-        {categories.map((category, index) => (
-          <span className={styles.post__category} key={index}>
-            <Link href={`/category/${category}`}>{category}</Link>
-          </span>
-        ))}
-      </div>
-      <p>{date}</p>
-      <div dangerouslySetInnerHTML={{ __html: cleanPost }}></div>
+      <time className={styles.post__date}>{date}</time>
+      <ReactMarkdown>{post}</ReactMarkdown>
     </article>
   );
 };
