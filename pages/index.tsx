@@ -1,4 +1,3 @@
-import { marked } from "marked";
 import type { GetServerSideProps, NextPage } from "next";
 
 import Layout from "../components/Layout/Layout";
@@ -6,13 +5,13 @@ import { IPageProps } from "../interfaces/IPageProps";
 import { IPost } from "../interfaces/IPost";
 import dbConnect from "../lib/db-connect";
 import Post from "../schemas/Post";
-import { BlogContextProvider } from "../store/store";
+import BlogContext from "../store/store";
 
-const Home: NextPage<IPageProps> = (props) => {
+const Home: NextPage<IPageProps> = ({ categories, posts }) => {
   return (
-    <BlogContextProvider>
-      <Layout {...props} />
-    </BlogContextProvider>
+    <BlogContext.Provider value={{ categories, posts }}>
+      <Layout />
+    </BlogContext.Provider>
   );
 };
 
@@ -28,10 +27,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       categories,
-      posts: posts.map(({ categories, date, post }) => ({
-        categories: categories,
-        date: date,
-        post: marked.parse(post),
+      posts: posts.map((post) => ({
+        categories: post.categories,
+        date: post.date,
+        post: post.post,
       })),
     },
   };

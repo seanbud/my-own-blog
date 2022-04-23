@@ -6,13 +6,13 @@ import { IPageProps } from "../../interfaces/IPageProps";
 import { IPost } from "../../interfaces/IPost";
 import dbConnect from "../../lib/db-connect";
 import Post from "../../schemas/Post";
-import { BlogContextProvider } from "../../store/store";
+import BlogContext from "../../store/store";
 
-const Category: NextPage<IPageProps> = (props) => {
+const Category: NextPage<IPageProps> = ({ categories, posts }) => {
   return (
-    <BlogContextProvider>
-      <Layout {...props} />
-    </BlogContextProvider>
+    <BlogContext.Provider value={{ categories, posts }}>
+      <Layout />
+    </BlogContext.Provider>
   );
 };
 
