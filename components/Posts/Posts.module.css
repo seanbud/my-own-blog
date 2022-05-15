@@ -5,3 +5,7 @@
 .posts article + article {
   margin-top: 5rem;
 }
+
+.horizontal {
+  visibility: hidden;
+}
