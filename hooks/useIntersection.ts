@@ -4,7 +4,14 @@ import { BlogContextType } from "../store/store";
 const useIntersection = (context: BlogContextType) => {
   const containerRef = useRef(null);
 
+  const isInitialMount = useRef(true);
+
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
