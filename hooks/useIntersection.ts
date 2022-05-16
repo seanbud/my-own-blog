@@ -7,15 +7,12 @@ const useIntersection = (context: BlogContextType) => {
   const isInitialMount = useRef(true);
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          context.setPage();
+          isInitialMount.current
+            ? (isInitialMount.current = false)
+            : context.setPage();
         }
       });
     });
