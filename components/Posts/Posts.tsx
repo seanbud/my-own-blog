@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useEffect, useRef } from "react";
+import { FunctionComponent, useContext, useEffect } from "react";
 
 import styles from "./Posts.module.css";
 
@@ -16,14 +16,7 @@ const Posts: FunctionComponent = () => {
 
   const [containerRef] = useIntersection(context);
 
-  const isInitialMount = useRef(true);
-
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-
     fetch(`/api/posts/${context.page}`)
       .then((response) => response.json() as JSONResponse)
       .then(({ data }) => data && context.setPosts(data));
